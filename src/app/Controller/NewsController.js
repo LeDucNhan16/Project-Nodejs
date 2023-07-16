@@ -3,7 +3,7 @@ class NewsController {
     res.render("new");
   }
   show(req, res) {
-    res.send("hgggggggggggggggggggggggd");
+    res.send("couse");
   }
 }
 

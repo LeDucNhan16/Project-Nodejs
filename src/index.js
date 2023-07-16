@@ -7,6 +7,10 @@ const port = 3000;
 
 const route = require("./route");
 
+const db = require("./config/db");
+
+db.connect();
+
 app.use(express.static(path.join(__dirname, "puclic")));
 
 app.use(
@@ -25,6 +29,7 @@ app.engine(
     extname: ".hbs",
   })
 );
+
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "resources/views"));
 
