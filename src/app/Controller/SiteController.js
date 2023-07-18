@@ -1,6 +1,5 @@
 const Courses = require("../Models/Courses");
 const { mutipleMongooseObject } = require("../ulti/mongoose");
-
 class SiteController {
   // [GET]
   home(req, res, next) {
