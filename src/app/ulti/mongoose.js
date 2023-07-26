@@ -1,5 +1,5 @@
 module.exports = {
-  mutipleMongooseObject: function (courses) {
+  mutipleMongooseeObject: function (courses) {
     return courses.map((courses) => courses.toObject());
   },
   mongooseObject: function (course) {
