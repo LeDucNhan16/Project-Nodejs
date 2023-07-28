@@ -1,12 +1,12 @@
 const Courses = require("../Models/Courses");
 const { mutipleMongooseObject } = require("../Ulti/Mongoose");
 
-class SiteController {
+class MeController {
   // [GET]
-  home(req, res, next) {
+  showEdit(req, res, next) {
     Courses.find({})
       .then((courses) => {
-        res.render("home", {
+        res.render("me/edit", {
           courses: mutipleMongooseObject(courses),
         });
       })
@@ -14,4 +14,4 @@ class SiteController {
   }
 }
 
-module.exports = new SiteController();
+module.exports = new MeController();

@@ -6,7 +6,7 @@ async function connect() {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    console.log("thanh cong");
+    console.log("success");
   } catch (error) {
     console.log("error");
   }

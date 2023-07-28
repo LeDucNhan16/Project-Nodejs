@@ -1,11 +1,11 @@
 const Course = require("../Models/Courses");
-const { mongooseObject } = require("../Ulti/Mongoose");
+const { mongooseObject, mutipleMongooseObject } = require("../Ulti/Mongoose");
 
 class CoursesController {
   show(req, res, next) {
     Course.findOne({ slug: req.params.slug })
       .then((course) => {
-        res.render("course/show", {
+        res.render("courses/show", {
           course: mongooseObject(course),
         });
       })
@@ -13,7 +13,7 @@ class CoursesController {
   }
 
   create(req, res) {
-    res.render("course/create");
+    res.render("courses/create");
   }
 
   store(req, res, next) {
@@ -24,6 +24,24 @@ class CoursesController {
       .save()
       .then(() => {
         res.redirect("/");
+      })
+      .catch(next);
+  }
+
+  editVideo(req, res, next) {
+    Course.findById(req.params.id)
+      .then((course) => {
+        res.render("courses/edit", {
+          course: mongooseObject(course),
+        });
+      })
+      .catch(next);
+  }
+
+  update(req, res, next) {
+    Course.updateOne({ _id: req.params.id }, req.body)
+      .then(() => {
+        res.redirect("/me/edit");
       })
       .catch(next);
   }

@@ -1,10 +1,11 @@
-const newsRoute = require("./new");
 const courseRoute = require("./courses");
+const meRoute = require("./me");
 const siteRoute = require("./site");
 
 function route(app) {
-  app.use("/news", newsRoute);
-  app.use("/course", courseRoute);
+  app.use("/courses", courseRoute);
+  app.use("/me", meRoute);
+
   app.use("/", siteRoute);
 }
 
