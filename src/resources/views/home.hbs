@@ -1,14 +1,16 @@
 <div class="row">
-  <div class="col-lg-3"><h1>siderbar</h1></div>
+  <div class="col-lg-3">
+    <h1>siderbar</h1>
+  </div>
   <div class="col-lg-9">
     <div class="row">
       {{#each courses}}
         <div class="card" style="width: 18rem;">
           <a href="/courses/{{this.slug}}">
             <img
-              src="{{this.image}}"
               class="card-img-top"
-              alt="{{this.name}}"
+              src="{{this.image}}"
+              alt="Card image cap"
             />
           </a>
           <div class="card-body">

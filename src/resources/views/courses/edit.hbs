@@ -1,16 +1,15 @@
 <div class="container mt-5">
   <form method="POST" action="/courses/{{course._id}}?_method=PUT">
-    <div class="mb-3">
-      <label for="Name" class="form-label">Name</label>
+    <div class="form-group">
+      <label for="name">name</label>
       <input
         type="text"
         value="{{course.name}}"
         name="name"
         class="form-control"
-        id="Name"
+        id="name"
       />
-
-      <label for="description" class="form-label">description</label>
+      <label for="description">description</label>
       <input
         type="text"
         value="{{course.description}}"
@@ -18,8 +17,7 @@
         class="form-control"
         id="description"
       />
-
-      <label for="videoId" class="form-label">videoId</label>
+      <label for="videoId">videoId</label>
       <input
         type="text"
         value="{{course.videoId}}"
@@ -27,8 +25,7 @@
         class="form-control"
         id="videoId"
       />
-
-      <label for="level" class="form-label">level</label>
+      <label for="level">level</label>
       <input
         type="text"
         value="{{course.level}}"
@@ -37,7 +34,6 @@
         id="level"
       />
     </div>
-
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>

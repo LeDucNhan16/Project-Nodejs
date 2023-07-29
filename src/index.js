@@ -8,7 +8,7 @@ const port = 3000;
 
 const route = require("./routes/index");
 
-// config db
+// mongoose db connect
 const db = require("./config/db");
 
 db.connect();

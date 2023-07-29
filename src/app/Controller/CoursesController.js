@@ -1,8 +1,7 @@
 const Courses = require("../Models/Courses");
 const { mongooseObject } = require("../Ulti/Mongoose");
-
 class CoursesController {
-  // [GET]
+  // [GET] courses/:slug video
   show(req, res, next) {
     Courses.findOne({ slug: req.params.slug })
       .then((course) => {
@@ -13,10 +12,12 @@ class CoursesController {
       .catch(next);
   }
 
+  // [GET] /courses/create
   create(req, res, next) {
     res.render("courses/create");
   }
 
+  // [POST] /courses/store
   store(req, res, next) {
     const formData = req.body;
     formData.image = `https://img.youtube.com/vi/${req.body.videoId}/sddefault.jpg`;
@@ -29,6 +30,7 @@ class CoursesController {
       .catch(next);
   }
 
+  // [GET] /courses/edit
   edit(req, res, next) {
     Courses.findById(req.params.id)
       .then((course) => {
@@ -39,6 +41,7 @@ class CoursesController {
       .catch(next);
   }
 
+  // [PUT] /courses/update
   update(req, res, next) {
     Courses.updateOne({ _id: req.params.id }, req.body)
       .then(() => {
@@ -47,6 +50,7 @@ class CoursesController {
       .catch(next);
   }
 
+  // [DELETE] /courses/delete
   delete(req, res, next) {
     Courses.deleteOne({ _id: req.params.id })
       .then(() => {

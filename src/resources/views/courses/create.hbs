@@ -1,24 +1,39 @@
-<div class="container mt-5">
+<div class="container">
   <form method="POST" action="/courses/store">
-    <div class="mb-3">
-      <label for="Name" class="form-label">Name</label>
-      <input type="text" name="name" class="form-control" id="Name" />
-
-      <label for="description" class="form-label">description</label>
+    <div class="form-group">
+      <label for="name">name</label>
+      <input
+        type="text"
+        name="name"
+        class="form-control"
+        id="name"
+        aria-describedby="emailHelp"
+      />
+      <label for="description">description</label>
       <input
         type="text"
         name="description"
         class="form-control"
         id="description"
+        aria-describedby="emailHelp"
       />
-
-      <label for="videoId" class="form-label">videoId</label>
-      <input type="text" name="videoId" class="form-control" id="videoId" />
-
-      <label for="level" class="form-label">level</label>
-      <input type="text" name="level" class="form-control" id="level" />
+      <label for="videoId">videoId</label>
+      <input
+        type="text"
+        name="videoId"
+        class="form-control"
+        id="videoId"
+        aria-describedby="emailHelp"
+      />
+      <label for="level">level</label>
+      <input
+        type="text"
+        name="level"
+        class="form-control"
+        id="level"
+        aria-describedby="emailHelp"
+      />
     </div>
-
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
