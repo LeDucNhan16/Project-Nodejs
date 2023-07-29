@@ -8,6 +8,7 @@ const port = 3000;
 
 const route = require("./routes/index");
 
+// config db
 const db = require("./config/db");
 
 db.connect();

@@ -3,7 +3,7 @@ const { mutipleMongooseObject } = require("../Ulti/Mongoose");
 
 class MeController {
   // [GET]
-  showEdit(req, res, next) {
+  editVideo(req, res, next) {
     Courses.find({})
       .then((courses) => {
         res.render("me/edit", {

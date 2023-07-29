@@ -1,31 +1,24 @@
 <div class="container mt-5">
-  <div class="row">
-    <div class="col-lg-12">
-      <form method="POST" action="/courses/store">
-        <div class="mb-3">
-          <label for="name" class="form-label">Name</label>
-          <input type="text" class="form-control" id="name" name="name" />
-        </div>
-        <div class="mb-3">
-          <label for="description" class="form-label">description</label>
-          <input
-            type="text"
-            class="form-control"
-            id="description"
-            name="description"
-          />
-        </div>
-        <div class="mb-3">
-          <label for="videoId" class="form-label">videoId</label>
-          <input type="text" class="form-control" id="videoId" name="videoId" />
-        </div>
-        <div class="mb-3">
-          <label for="level" class="form-label">level</label>
-          <input type="text" class="form-control" id="level" name="level" />
-        </div>
+  <form method="POST" action="/courses/store">
+    <div class="mb-3">
+      <label for="Name" class="form-label">Name</label>
+      <input type="text" name="name" class="form-control" id="Name" />
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+      <label for="description" class="form-label">description</label>
+      <input
+        type="text"
+        name="description"
+        class="form-control"
+        id="description"
+      />
+
+      <label for="videoId" class="form-label">videoId</label>
+      <input type="text" name="videoId" class="form-control" id="videoId" />
+
+      <label for="level" class="form-label">level</label>
+      <input type="text" name="level" class="form-control" id="level" />
     </div>
-  </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
 </div>

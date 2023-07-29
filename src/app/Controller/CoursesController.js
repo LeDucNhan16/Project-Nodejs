@@ -1,9 +1,10 @@
-const Course = require("../Models/Courses");
-const { mongooseObject, mutipleMongooseObject } = require("../Ulti/Mongoose");
+const Courses = require("../Models/Courses");
+const { mongooseObject } = require("../Ulti/Mongoose");
 
 class CoursesController {
+  // [GET]
   show(req, res, next) {
-    Course.findOne({ slug: req.params.slug })
+    Courses.findOne({ slug: req.params.slug })
       .then((course) => {
         res.render("courses/show", {
           course: mongooseObject(course),
@@ -12,14 +13,14 @@ class CoursesController {
       .catch(next);
   }
 
-  create(req, res) {
+  create(req, res, next) {
     res.render("courses/create");
   }
 
   store(req, res, next) {
     const formData = req.body;
-    formData.image = `https://img.youtube.com/vi/${formData.videoId}/sddefault.jpg`;
-    const course = new Course(formData);
+    formData.image = `https://img.youtube.com/vi/${req.body.videoId}/sddefault.jpg`;
+    const course = new Courses(formData);
     course
       .save()
       .then(() => {
@@ -28,8 +29,8 @@ class CoursesController {
       .catch(next);
   }
 
-  editVideo(req, res, next) {
-    Course.findById(req.params.id)
+  edit(req, res, next) {
+    Courses.findById(req.params.id)
       .then((course) => {
         res.render("courses/edit", {
           course: mongooseObject(course),
@@ -39,9 +40,17 @@ class CoursesController {
   }
 
   update(req, res, next) {
-    Course.updateOne({ _id: req.params.id }, req.body)
+    Courses.updateOne({ _id: req.params.id }, req.body)
       .then(() => {
         res.redirect("/me/edit");
+      })
+      .catch(next);
+  }
+
+  delete(req, res, next) {
+    Courses.deleteOne({ _id: req.params.id })
+      .then(() => {
+        res.redirect("back");
       })
       .catch(next);
   }
