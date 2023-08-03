@@ -1,12 +1,13 @@
 const Courses = require("../Models/Courses");
-const { mutipleMongooseObject } = require("../Ulti/Mongoose");
+const { listMongooseObject } = require("../Ulti/Mongoose");
+
 class MeController {
-  // [GET]
-  edit(req, res, next) {
+  // [GET] /home
+  listCourses(req, res, next) {
     Courses.find({})
       .then((courses) => {
-        res.render("me/edit", {
-          courses: mutipleMongooseObject(courses),
+        res.render("me/listCourses", {
+          courses: listMongooseObject(courses),
         });
       })
       .catch(next);
