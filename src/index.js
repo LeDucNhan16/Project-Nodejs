@@ -8,10 +8,13 @@ const port = 3000;
 
 const route = require("./routes/index");
 // mongoose connect db
+
 const db = require("./config/db");
 
 db.connect();
+
 app.use(methodOverride("_method"));
+
 app.use(express.static(path.join(__dirname, "puclic")));
 
 app.use(

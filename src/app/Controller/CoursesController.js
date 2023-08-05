@@ -1,5 +1,5 @@
 const Courses = require("../Models/Courses");
-const { mongooseObject, listMongooseObject } = require("../Ulti/Mongoose");
+const { mongooseObject } = require("../Ulti/Mongoose");
 
 class CoursesController {
   // [GET] /home
@@ -23,7 +23,7 @@ class CoursesController {
     course
       .save()
       .then(() => {
-        res.redirect("/");
+        res.redirect("/me/listCourses");
       })
       .catch(next);
   }
@@ -46,8 +46,24 @@ class CoursesController {
       .catch(next);
   }
 
+  deleteAndTrash(req, res, next) {
+    Courses.delete({ _id: req.params.id })
+      .then(() => {
+        res.redirect("back");
+      })
+      .catch(next);
+  }
+
   delete(req, res, next) {
     Courses.deleteOne({ _id: req.params.id })
+      .then(() => {
+        res.redirect("back");
+      })
+      .catch(next);
+  }
+
+  restore(req, res, next) {
+    Courses.restore({ _id: req.params.id })
       .then(() => {
         res.redirect("back");
       })

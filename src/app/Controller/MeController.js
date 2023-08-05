@@ -1,5 +1,5 @@
 const Courses = require("../Models/Courses");
-const { listMongooseObject } = require("../Ulti/Mongoose");
+const { mutipleMongooseObject } = require("../Ulti/Mongoose");
 
 class MeController {
   // [GET] /home
@@ -7,7 +7,17 @@ class MeController {
     Courses.find({})
       .then((courses) => {
         res.render("me/listCourses", {
-          courses: listMongooseObject(courses),
+          courses: mutipleMongooseObject(courses),
+        });
+      })
+      .catch(next);
+  }
+
+  listCoursesTrash(req, res, next) {
+    Courses.findWithDeleted({ deleted: true })
+      .then((courses) => {
+        res.render("me/listCoursesTrash", {
+          courses: mutipleMongooseObject(courses),
         });
       })
       .catch(next);

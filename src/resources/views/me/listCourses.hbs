@@ -1,10 +1,15 @@
+<div>
+  <h2>Trash Can</h2>
+  <a href="/me/listCoursesTrash">Go Trash Can</a>
+</div>
+
 <table class="table">
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Level</th>
-      <th scope="col">Create</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
     </tr>
   </thead>
   <tbody>
@@ -15,11 +20,7 @@
         <td>{{this.level}}</td>
         <td>{{this.createdAt}}</td>
         <td>
-          <a
-            href="/courses/{{this._id}}/edit"
-            type="button"
-            class="btn btn-light"
-          >Edit</a>
+          <a href="/courses/{{this._id}}/edit" class="btn btn-light">Edit</a>
           <button
             type="button"
             data-id="{{this._id}}"
@@ -29,10 +30,13 @@
           >Clear</button>
         </td>
       </tr>
-      {{else}}
-      <tr class="text-center">
-        <td>Bạn chưa có khóa học nào. <a href="/courses/create">Đi tạo khóa học</a> </td>
+    {{else}}
+      <tr class="text-center"> 
+        <td>Chua co khoa hoc nao
+          <a href="/courses/create">Di tao khoa hoc</a>
+        </td>
       </tr>
+
     {{/each}}
   </tbody>
 </table>
@@ -68,20 +72,19 @@
           class="btn btn-secondary"
           data-dismiss="modal"
         >Close</button>
-        <button type="button" id="btn__delete" class="btn btn-primary">Save
-          changes</button>
+        <button type="button" id="btn__delete" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
 </div>
 
-<form method="POST" name="delete__form">
+<form method="POST" name="form__delete">
 
 <script>
-  document.addEventListener('DOMContentLoaded',function () {
+  document.addEventListener("DOMContentLoaded",function () {
     var courseId;
     var btnDelete = document.getElementById('btn__delete');
-    var formDelete = document.forms['delete__form']
+    var formDelete = document.forms['form__delete']
     $('#exampleModal').on('show.bs.modal', function (event) {
       var button = $(event.relatedTarget);
       courseId = button.data('id');

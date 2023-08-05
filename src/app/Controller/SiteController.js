@@ -1,5 +1,5 @@
 const Courses = require("../Models/Courses");
-const { listMongooseObject } = require("../Ulti/Mongoose");
+const { mutipleMongooseObject } = require("../Ulti/Mongoose");
 
 class SiteController {
   // [GET] /home
@@ -7,7 +7,7 @@ class SiteController {
     Courses.find({})
       .then((courses) => {
         res.render("home", {
-          courses: listMongooseObject(courses),
+          courses: mutipleMongooseObject(courses),
         });
       })
       .catch(next);
