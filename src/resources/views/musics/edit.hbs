@@ -1,0 +1,13 @@
+<div class="container mt-5">
+        <form method="POST" action="/musics/{{music._id}}?_method=PUT">
+            <div class="form-group">
+                <label for="title">title</label>
+                <input type="text" class="form-control" value="{{music.title}}" name="title" id="title" placeholder="title...">
+                <label for="description">description</label>
+                <input type="text" class="form-control" value="{{music.description}}" name="description" id="description" placeholder="description...">
+                <label for="videoId">videoId</label>
+                <input type="text" class="form-control" value="{{music.videoId}}" name="videoId" id="videoId" placeholder="videoId...">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+</div>

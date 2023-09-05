@@ -1,19 +1,19 @@
 const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
-const methodOverride = require("method-override");
+const methodOverride = require('method-override')
 const handlebars = require("express-handlebars");
 const app = express();
 const port = 3000;
 
 const route = require("./routes/index");
-// mongoose connect db
 
-const db = require("./config/db");
+const db = require('./config/db')
 
-db.connect();
+db.connect()
 
-app.use(methodOverride("_method"));
+app.use(methodOverride('_method'))
+
 
 app.use(express.static(path.join(__dirname, "puclic")));
 
@@ -33,7 +33,7 @@ app.engine(
     extname: ".hbs",
     helpers: {
       sum: (a, b) => a + b,
-    },
+  },
   })
 );
 

@@ -1,8 +1,8 @@
 module.exports = {
-  mutipleMongooseObject: function (courses) {
-    return courses.map((courses) => courses.toObject());
-  },
-  mongooseObject: function (course) {
-    return course ? course.toObject() : course;
-  },
-};
+    listMusicsMongooseObject : function(musics) {
+        return musics.map(musics => musics.toObject())
+    },
+    musicMongooseObject : function(music) {
+        return music ? music.toObject() : music
+    }
+}

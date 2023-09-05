@@ -1,26 +1,25 @@
-<div class="row">
-  <div class="col-lg-2"><h2>Menu</h2></div>
-  <div class="col-lg-10">
-    <div class="row">
-      {{#each courses}}
-        <div class="card" style="width: 18rem;">
-          <a href="/courses/{{this.slug}}">
-            <img
-              class="card-img-top"
-              src="{{this.image}}"
-              alt="{{this.name}}"
-            />
-          </a>
-          <div class="card-body">
-            <a href="/courses/{{this.slug}}">
-              <h5 class="card-title">{{this.name}}</h5>
-            </a>
-            <p class="card-text">{{this.description}}</p>
-          </div>
+<div class="row mt-5">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-9">
+        <div class="row">
+            {{#each musics}}
+                <div class="card" style="width: 18rem;">
+                    <a href="/musics/{{this.slug}}">
+                        <img class="card-img-top" src="{{this.image}}" alt="{{this.title}}">
+                    </a>
+                    <div class="card-body">
+                        <a href="/musics/{{this.slug}}">
+                            <h5 class="card-title">{{this.title}}</h5>
+                        </a>
+                    </div>
+                </div>
+            {{else}}
+                <div>
+                    <h2>
+                        chua co music nao. <a href="/musics/create">di tao music</a>
+                    </h2>
+                </div>
+            {{/each}}
         </div>
-      {{else}}
-        <h2>No courses</h2>
-      {{/each}}
     </div>
-  </div>
 </div>

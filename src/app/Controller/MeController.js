@@ -1,27 +1,28 @@
-const Courses = require("../Models/Courses");
-const { mutipleMongooseObject } = require("../Ulti/Mongoose");
-
+const Musics = require('../Model/Musics');
+const { listMusicsMongooseObject, musicMongooseObject } = require('../Ulti/Mongoose');
 class MeController {
   // [GET] /home
-  listCourses(req, res, next) {
-    Courses.find({})
-      .then((courses) => {
-        res.render("me/listCourses", {
-          courses: mutipleMongooseObject(courses),
-        });
+  listMusics(req, res, next) {
+    Musics.find({})
+      .then((musics) => {
+        res.render('me/listMusics',{
+          musics : listMusicsMongooseObject(musics)
+        })
       })
-      .catch(next);
+      .catch(next)
   }
 
-  listCoursesTrash(req, res, next) {
-    Courses.findWithDeleted({ deleted: true })
-      .then((courses) => {
-        res.render("me/listCoursesTrash", {
-          courses: mutipleMongooseObject(courses),
-        });
+  trashCanListMusic(req, res, next) {
+    Musics.findWithDeleted({deleted : true})
+      .then((musics) => {
+        res.render('me/trashCanListMusic',{
+          musics : listMusicsMongooseObject(musics)
+        })
       })
-      .catch(next);
+      .catch(next)
   }
+
+  
 }
 
 module.exports = new MeController();

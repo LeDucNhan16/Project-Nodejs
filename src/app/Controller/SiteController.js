@@ -1,16 +1,15 @@
-const Courses = require("../Models/Courses");
-const { mutipleMongooseObject } = require("../Ulti/Mongoose");
-
+const Musics = require('../Model/Musics');
+const { listMusicsMongooseObject } = require('../Ulti/Mongoose');
 class SiteController {
   // [GET] /home
   home(req, res, next) {
-    Courses.find({})
-      .then((courses) => {
-        res.render("home", {
-          courses: mutipleMongooseObject(courses),
-        });
+    Musics.find({})
+      .then((musics) => {
+        res.render('home',{
+          musics : listMusicsMongooseObject(musics)
+        })
       })
-      .catch(next);
+      .catch(next)
   }
 }
 
